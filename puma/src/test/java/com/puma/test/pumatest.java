@@ -1,5 +1,6 @@
 package com.puma.test;
 
+import org.puma.page.CartPage;
 import org.puma.page.HomePage;
 import org.puma.page.ProductPage;
 import org.testng.Reporter;
@@ -22,6 +23,10 @@ public class pumatest extends Baselib {
         
         ProductPage p1=new ProductPage(driver);
         p1.shoeclick();
+        
+        CartPage c1=new CartPage(driver);
+        c1.size();
+        c1.select();
    }
 
 }
