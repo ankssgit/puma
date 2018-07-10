@@ -1,7 +1,7 @@
 package com.puma.test;
 
 import org.puma.page.HomePage;
-import org.testng.Assert;
+import org.puma.page.ProductPage;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -14,11 +14,14 @@ public class pumatest extends Baselib {
 	public void testApplication() throws Exception
 	{
 		Reporter.log("Test Passed", true);
-		BasePage b1=new BasePage(driver);
-		b1.pagetitle();
+		BasePage b1=new BasePage();
+		b1.pagetitle(driver);
 		
 		HomePage h1=new HomePage(driver);
-         h1.menshoe();
+        h1.menshoe();
+        
+        ProductPage p1=new ProductPage(driver);
+        p1.shoeclick();
    }
 
 }

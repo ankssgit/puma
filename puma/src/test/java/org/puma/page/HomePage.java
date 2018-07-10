@@ -5,11 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.puma.generic.BasePage;
 
-public class HomePage{
-	public WebDriver driver;
+public class HomePage extends BasePage{
+	//public WebDriver driver;
+	
 	@FindBy(xpath="//a[@data-subnav='men-subnav']")
 	private WebElement elemenLink;
 	
@@ -26,6 +30,8 @@ public class HomePage{
 		Actions actions=new Actions(driver);
 		Thread.sleep(2000);
 		actions.moveToElement(elemenLink).perform();
+		WebDriverWait wait=new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(eleRunning));
 		eleRunning.click();
 	}
 	
