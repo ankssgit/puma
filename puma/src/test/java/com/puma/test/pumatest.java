@@ -26,7 +26,7 @@ public class pumatest extends Baselib {
         
         CartPage c1=new CartPage(driver);
         c1.size();
-        c1.select();
+    //  c1.select();
    }
 
 }
