@@ -2,6 +2,7 @@ package com.puma.generic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
@@ -12,13 +13,13 @@ public class Baselib implements IAutoConst {
 static public WebDriver driver;
 static
 {
-	System.setProperty(CHROME_KEY, CHROME_VALUE);
-	//System.setProperty(FIREFOX_KEY, FIREFOX_VALUE);
+	//System.setProperty(CHROME_KEY, CHROME_VALUE);
+	System.setProperty(FIREFOX_KEY, FIREFOX_VALUE);
 }
   @BeforeMethod
   public void OpenApplication() throws Exception
    {
-	 driver=new ChromeDriver();
+	 driver=new FirefoxDriver();
 	 Property p1=new Property();
 	 String url=p1.property("URL");
 	 driver.manage().window().maximize();

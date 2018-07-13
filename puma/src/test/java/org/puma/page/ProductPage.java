@@ -23,7 +23,7 @@ public class ProductPage  {
 	{
 		JavascriptExecutor j=(JavascriptExecutor) driver;
 		j.executeScript("window.scrollBy(0,500)");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		eleShoe.click();
 	}
 }
