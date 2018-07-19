@@ -1,5 +1,7 @@
 package org.puma.page;
 
+import java.util.Set;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,6 +26,15 @@ public class ProductPage  {
 		JavascriptExecutor j=(JavascriptExecutor) driver;
 		j.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
-		eleShoe.click();
+		 String parentWindow= driver.getWindowHandle();
+		 System.out.println("Original Winodow"+parentWindow);
+		 eleShoe.click();
+		 Set<String> childwindow = driver.getWindowHandles();
+		 System.out.println("Child Windows/tabs"+childwindow);
+		 for(String tab:childwindow)
+		 {
+			 driver.switchTo().window(tab);
+		 }
+	   
 	}
 }

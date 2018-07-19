@@ -13,13 +13,13 @@ public class Baselib implements IAutoConst {
 static public WebDriver driver;
 static
 {
-	//System.setProperty(CHROME_KEY, CHROME_VALUE);
-	System.setProperty(FIREFOX_KEY, FIREFOX_VALUE);
+	System.setProperty(CHROME_KEY, CHROME_VALUE);
+	//System.setProperty(FIREFOX_KEY, FIREFOX_VALUE);
 }
   @BeforeMethod
   public void OpenApplication() throws Exception
    {
-	 driver=new FirefoxDriver();
+	 driver=new ChromeDriver();
 	 Property p1=new Property();
 	 String url=p1.property("URL");
 	 driver.manage().window().maximize();

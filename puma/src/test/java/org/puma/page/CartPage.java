@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
  
 
 public class CartPage {
@@ -17,7 +18,7 @@ public class CartPage {
 	private WebElement eleCartButton;
 
 	
-	@FindBy(css="div.product-size-click-btn")
+	@FindBy(xpath="//div[@class='product-size-click-btn']")
 	private WebElement eleSizeBox;
 	
 	@FindBy(xpath="//div[@class='product-size-click-btn']/../../..//a[contains(@id,'swatch')]")
@@ -33,21 +34,24 @@ public class CartPage {
 	}
 
 	public void size() throws Exception
-	{
-		
-		WebDriverWait wait=new WebDriverWait(driver, 50);
+	{		
+		WebDriverWait wait=new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOf(eleSizeBox));
-		wait.until(ExpectedConditions.elementToBeClickable(eleSizeBox));
+		//wait.until(ExpectedConditions.elementToBeClickable(eleSizeBox));
 		//Thread.sleep(1000);
 		//JavascriptExecutor j=(JavascriptExecutor) driver;
+		//System.out.println(eleSizeBox.isEnabled());	
+		eleSizeBox.click();
+		Thread.sleep(1000);
 		eleSize.click();
 	}
 	public void select() throws Exception
 	{
 		Thread.sleep(4000);
 		Select select=new Select(eleSelectBox);
-		select.selectByIndex(0);
-		//eleCartButton.click();
+		select.selectByIndex(1);
+		eleCartButton.click();
+		Assert
 	}
 	
 	
